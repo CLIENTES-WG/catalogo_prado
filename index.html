@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prado Distribuidora</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif
+        }
+
+        body {
+            background: #fff6ec;
+            color: #2e1a0c;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #ff6a00, #ffb300);
+            padding: 22px;
+            border-radius: 0 0 30px 30px;
+            color: #fff;
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800
+        }
+
+        .sub {
+            font-size: .8rem;
+            opacity: .9;
+            margin-top: 3px;
+        }
+
+        /* BUSCA */
+
+        .search {
+            padding: 16px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            font-size: .9rem;
+        }
+
+        /* GRID */
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        /* CARD */
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .category {
+            position: absolute;
+            background: #fff;
+            color: #ff6a00;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: .7rem;
+            font-weight: 700;
+            top: 10px;
+            left: 10px;
+        }
+
+        .img-box {
+            position: relative;
+        }
+
+        .info {
+            padding: 12px;
+        }
+
+        .info h3 {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .info p {
+            font-size: .75rem;
+            color: #7a5b3d;
+            margin-top: 5px;
+        }
+
+        .actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .actions button,
+        .actions a {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: .75rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .btn-view {
+            background: #eee;
+        }
+
+        .btn-whats {
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* MODAL */
+
+        .modal {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background: #fff;
+            border-radius: 25px 25px 0 0;
+            transition: .3s;
+            z-index: 100;
+        }
+
+        .modal.active {
+            bottom: 0
+        }
+
+        .modal img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 15px;
+        }
+
+        .modal-body h2 {
+            font-size: 1.3rem;
+        }
+
+        .modal-body p {
+            margin-top: 8px;
+            font-size: .9rem;
+            color: #6b5032;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        .modal-actions button,
+        .modal-actions a {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .close {
+            background: #eee
+        }
+
+        .whats {
+            background: #25d366;
+            color: #fff;
+            text-decoration: none
+        }
+
+        /* FLOAT */
+
+        .float {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, .4);
+        }
+
+        /* EMPTY */
+
+        .empty {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="top">
+            <div class="logo">
+                <img src="img/logo.png">
+            </div>
+
+            <div>
+                <h1>Prado Distribuidora</h1>
+                <div class="sub">Doces • Amendoins • Guloseimas para revenda</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search">
+        <input type="text" id="search" placeholder="Buscar produto...">
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="empty" id="empty">Nenhum produto encontrado</div>
+
+    <a class="float" href="https://wa.me/5566992118670" target="_blank">✆</a>
+
+    <div class="modal" id="modal">
+        <img id="mImg">
+
+        <div class="modal-body">
+            <h2 id="mTitle"></h2>
+            <p id="mDesc"></p>
+        </div>
+
+        <div class="modal-actions">
+            <button class="close" onclick="closeModal()">Fechar</button>
+            <a class="whats" id="mWhats" target="_blank">Consultar</a>
+        </div>
+    </div>
+
+    <script>
+
+        const products = [
+            { nome: "Amendoim Japonês", cat: "Amendoins", desc: "Produto crocante com alta saída.", img: "https://images.unsplash.com/photo-1608797178974-15b35a64ede9" },
+            { nome: "Balas Sortidas", cat: "Doces", desc: "Mix ideal para bombonieres.", img: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f" },
+            { nome: "Gomas Doces", cat: "Doces", desc: "Coloridas e atrativas.", img: "https://images.unsplash.com/photo-1598188064645-a4e1f808ecf5" },
+            { nome: "Pirulitos", cat: "Doces", desc: "Grande saída infantil.", img: "https://images.unsplash.com/photo-1575224300306-1b8da36134ec" },
+            { nome: "Chocolate", cat: "Chocolates", desc: "Venda garantida.", img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52" },
+            { nome: "Bombons", cat: "Chocolates", desc: "Ótimo giro.", img: "https://images.unsplash.com/photo-1548907040-4baa42d10919" },
+            { nome: "Biscoito", cat: "Biscoitos", desc: "Consumo diário.", img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e" },
+            { nome: "Salgadinhos", cat: "Salgadinhos", desc: "Alta procura.", img: "https://images.unsplash.com/photo-1566478989037-eec170784d0b" }
+        ];
+
+        const grid = document.getElementById("grid");
+        const search = document.getElementById("search");
+        const empty = document.getElementById("empty");
+
+        function render() {
+            let f = search.value.toLowerCase();
+
+            let list = products.filter(p => p.nome.toLowerCase().includes(f));
+
+            grid.innerHTML = "";
+
+            list.forEach(p => {
+                let card = document.createElement("div");
+                card.className = "card";
+
+                card.innerHTML = `
+<div class="img-box">
+<img src="${p.img}">
+<div class="category">${p.cat}</div>
+</div>
+
+<div class="info">
+<h3>${p.nome}</h3>
+<p>${p.desc}</p>
+
+<div class="actions">
+<button class="btn-view" onclick="event.stopPropagation(); openModal(${JSON.stringify(p)})">Ver</button>
+<a class="btn-whats" href="https://wa.me/5566992118670?text=${encodeURIComponent('Olá, tenho interesse em: ' + p.nome)}" target="_blank">Consultar</a>
+</div>
+
+</div>
+`;
+
+                card.onclick = () => openModal(p);
+
+                grid.appendChild(card);
+            });
+
+            empty.style.display = list.length ? "none" : "block";
+        }
+
+        search.addEventListener("input", render);
+
+        function openModal(p) {
+            document.getElementById("modal").classList.add("active");
+            document.getElementById("mImg").src = p.img;
+            document.getElementById("mTitle").innerText = p.nome;
+            document.getElementById("mDesc").innerText = p.desc;
+
+            let msg = encodeURIComponent("Olá, tenho interesse em: " + p.nome);
+            document.getElementById("mWhats").href = `https://wa.me/5566992118670?text=${msg}`;
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.remove("active");
+        }
+
+        render();
+
+    </script>
+
+</body>
+
+</html>
