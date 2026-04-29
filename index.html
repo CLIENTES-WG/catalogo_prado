@@ -295,14 +295,34 @@
     <script>
 
         const products = [
-            { nome: "Amendoim Japonês", cat: "Amendoins", desc: "Produto crocante com alta saída.", img: "https://images.unsplash.com/photo-1608797178974-15b35a64ede9" },
-            { nome: "Balas Sortidas", cat: "Doces", desc: "Mix ideal para bombonieres.", img: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f" },
-            { nome: "Gomas Doces", cat: "Doces", desc: "Coloridas e atrativas.", img: "https://images.unsplash.com/photo-1598188064645-a4e1f808ecf5" },
-            { nome: "Pirulitos", cat: "Doces", desc: "Grande saída infantil.", img: "https://images.unsplash.com/photo-1575224300306-1b8da36134ec" },
-            { nome: "Chocolate", cat: "Chocolates", desc: "Venda garantida.", img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52" },
-            { nome: "Bombons", cat: "Chocolates", desc: "Ótimo giro.", img: "https://images.unsplash.com/photo-1548907040-4baa42d10919" },
-            { nome: "Biscoito", cat: "Biscoitos", desc: "Consumo diário.", img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e" },
-            { nome: "Salgadinhos", cat: "Salgadinhos", desc: "Alta procura.", img: "https://images.unsplash.com/photo-1566478989037-eec170784d0b" }
+            { nome: "Torresmo Crocante 80g", cat: "Torresmo", desc: "Produto crocante Limão.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmo80glimao.jpg?alt=media&token=8db4cb0c-ee64-4fc1-b0dd-ba349c69218a" },
+            { nome: "Torresmo Crocante 50g", cat: "Torresmo", desc: "Produto crocante com alta saída.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmo50g.jpg?alt=media&token=ce332d36-c705-493c-91b4-8d0b401c46e4" },
+            { nome: "Torresmo Berbecue 80g", cat: "Torresmo", desc: "Produto crocante com alta saída.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmoberbecue80g.jpg?alt=media&token=c15297d8-974d-43ea-b798-e6e933635380" },
+            { nome: "Torresmo Berbecue Sache", cat: "Torresmo", desc: "Torresmo Berbecue Pct.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmobbcpct.png?alt=media&token=46d7759e-a681-4c62-9b20-71939607138a" },
+            { nome: "Torresmo Crocante 80g", cat: "Torresmo", desc: "Torresmo Cebola e Salsa 80g.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmo80gcebolaesalsa.jpg?alt=media&token=f0b26bb0-315d-4d33-85a7-5ca9051d3992" },
+            { nome: "Torresmo Crocante 80g", cat: "Torresmo", desc: "Torresmo Pele Suina 80g.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmocrocantepelesu.jpg?alt=media&token=7cade71c-5f74-4dc8-9991-96362be23a48" },
+            { nome: "Torresmo Lemon Pepper", cat: "Torresmo", desc: "Torresmo Lemon Pepper Gimores.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmolemompe.png?alt=media&token=03616d3a-9264-4e30-8fd0-c261b4027e9f" },
+            { nome: "Paçoca Caseira 90g", cat: "Doces", desc: "Atrativas e deliciosas.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fpacocacaseira90g.jpg?alt=media&token=1307d12b-8e93-403f-bdc9-ee80ede44a6f" },
+            { nome: "Geleia de Mocoto", cat: "Doces", desc: "Geleia de Mocoto Ki delicia.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fgeleiakidelicia.png?alt=media&token=a7ada34e-3ae6-49f6-add0-f30fd5c4bb9c" },
+            { nome: "Doce Ouro Minas", cat: "Doces", desc: "Beijo com Chocolate 1.050Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fdoceourominas.jpg?alt=media&token=9304ad7f-0fb1-44d8-93b4-7b2518fe3fd0" },
+            { nome: "Doce Ouro Minas Beijo", cat: "Doces", desc: "Beijo 1.050Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fourodeminabeijo.jpg?alt=media&token=85c106d2-2b44-4acd-a300-4d8eaf9e93be" },
+            { nome: "Doce Ouro Minas Brigadeiro", cat: "Doces", desc: "Brigadeiro 1.050Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fdocebrigadeiro.png?alt=media&token=dd6e8849-7b23-493e-a546-dad8c7f8170e" },
+            { nome: "Pingo Bel", cat: "Doces", desc: "Pingo Bel 1.050Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fpingobel.png?alt=media&token=2c29b3dd-13ba-4de1-80e4-0a6e3ba0de4d" },
+            { nome: "Doce de Leite", cat: "Doces", desc: "Doce de Leite 1.560Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fdocedeleite.jpg?alt=media&token=3837925f-c523-4d28-8e24-1bae1b32dc32" },
+            { nome: "Geleia de Mocoto", cat: "Doces", desc: "Geleia de Mocoto 1.440Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fgeleiademocoto.jpg?alt=media&token=84201f61-a082-4362-aef4-44836ba261f9" },
+            { nome: "Doce de Abóbora", cat: "Doces", desc: "Doce de Abóbora 1.300Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fdocedeabobora.png?alt=media&token=863eb055-6432-4608-ab9b-8199135a7b71" },
+            { nome: "Pé de Moleque Crocante", cat: "Doces", desc: "Pé de Moleque Crocante 1.020Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fpedemoleque.png?alt=media&token=c6571426-5a71-4db5-9dbe-93c7e015ea5c" },
+            { nome: "Pé de Moça", cat: "Doces", desc: "Pé de Moça 1.020Kg.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fpedemoca.png?alt=media&token=4f9ccffe-ac2d-4a7d-809e-854c8fad2a3c" },
+            { nome: "Doce de Leite c/ Paçoca", cat: "Doces", desc: "Doce de Leite c/ Paçoca 20 Und.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fdoceleitepacoca.png?alt=media&token=9eaa2891-6cfe-408e-81c4-147ecf5b0d08" },
+            { nome: "Cocada Carrijo sortida 30x1", cat: "Doces", desc: "Cocada Carrijo sortida.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fcocadasortida30x1.png?alt=media&token=0b62d647-0016-40bb-98cd-bbffde424dfe" },
+            { nome: "Trufas Sortidas", cat: "Doces", desc: "Trufas.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftrufas.png?alt=media&token=ac0520b9-01cb-49ee-a30e-61e9474c8f9b" },
+            { nome: "Bacon Chips 70g", cat: "Salgadinhos", desc: "Alta procura.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fsalbaconchips70g.jpg?alt=media&token=b7b392a9-525f-4ab0-a9ce-e7460c87adf3" },
+            { nome: "Cdb", cat: "Salgadinhos", desc: "Sal e Limão.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2FCdb.png?alt=media&token=4501388f-e573-475b-b742-0f14834e71da" },
+            { nome: "Canudos Fritos", cat: "Salgadinhos", desc: "Alta Procura.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fcanudos.png?alt=media&token=3dd21b4c-e9aa-4bf4-bf38-41bd1bec1832" },
+            { nome: "Banana Chips", cat: "Salgadinhos", desc: "Banana Chips 30g.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fbabanachips.png?alt=media&token=1468c115-b125-4dc3-b2a8-73c3b2ddd0dd" },
+            { nome: "Amendoim ", cat: "Salgadinhos", desc: "Amendoin Com e Sem pele.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Famendoin.png?alt=media&token=21b61a71-af78-4de4-a093-d2211882e5f9" },
+            
+            
         ];
 
         const grid = document.getElementById("grid");
