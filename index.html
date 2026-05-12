@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Poppins, sans-serif
+            font-family: Poppins, sans-serif;
         }
 
         body {
@@ -21,7 +21,9 @@
             color: #2e1a0c;
         }
 
-        /* HEADER */
+        body.modal-open {
+            overflow: hidden;
+        }
 
         header {
             background: linear-gradient(135deg, #ff6a00, #ffb300);
@@ -45,17 +47,18 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+            overflow: hidden;
         }
 
         .logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain
+            object-fit: contain;
         }
 
         h1 {
             font-size: 1.5rem;
-            font-weight: 800
+            font-weight: 800;
         }
 
         .sub {
@@ -63,8 +66,6 @@
             opacity: .9;
             margin-top: 3px;
         }
-
-        /* BUSCA */
 
         .search {
             padding: 16px;
@@ -77,30 +78,35 @@
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
             font-size: .9rem;
+            outline: none;
         }
-
-        /* GRID */
 
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
             padding: 16px;
+            padding-bottom: 95px;
         }
-
-        /* CARD */
 
         .card {
             background: #fff;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+            cursor: pointer;
+        }
+
+        .img-box {
+            position: relative;
+            background: #fff8ef;
         }
 
         .card img {
             width: 100%;
             height: 160px;
             object-fit: cover;
+            display: block;
         }
 
         .category {
@@ -113,10 +119,7 @@
             font-weight: 700;
             top: 10px;
             left: 10px;
-        }
-
-        .img-box {
-            position: relative;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
         }
 
         .info {
@@ -149,10 +152,12 @@
             font-size: .75rem;
             font-weight: 700;
             text-align: center;
+            cursor: pointer;
         }
 
         .btn-view {
             background: #eee;
+            color: #2e1a0c;
         }
 
         .btn-whats {
@@ -161,36 +166,85 @@
             text-decoration: none;
         }
 
-        /* MODAL */
-
         .modal {
             position: fixed;
-            bottom: -100%;
-            left: 0;
+            inset: 0;
             width: 100%;
-            height: 90%;
-            background: #fff;
-            border-radius: 25px 25px 0 0;
-            transition: .3s;
-            z-index: 100;
+            height: 100dvh;
+            background: rgba(0, 0, 0, .78);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: .25s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
         }
 
         .modal.active {
-            bottom: 0
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
-        .modal img {
+        .modal-header {
             width: 100%;
-            height: 260px;
-            object-fit: cover;
+            padding: 14px 15px;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .modal-close-top {
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .95);
+            color: #2e1a0c;
+            font-size: 24px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .25);
+        }
+
+        .modal-image-area {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 65px 12px 12px;
+        }
+
+        .modal-image-area img {
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 18px;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -12px 35px rgba(0, 0, 0, .25);
+            overflow: hidden;
         }
 
         .modal-body {
-            padding: 15px;
+            padding: 16px 16px 5px;
         }
 
         .modal-body h2 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
+            line-height: 1.25;
+            color: #2e1a0c;
         }
 
         .modal-body p {
@@ -202,7 +256,7 @@
         .modal-actions {
             display: flex;
             gap: 10px;
-            padding: 15px;
+            padding: 15px 16px 18px;
         }
 
         .modal-actions button,
@@ -213,19 +267,20 @@
             border-radius: 14px;
             font-weight: 700;
             text-align: center;
+            cursor: pointer;
+            font-size: .9rem;
         }
 
         .close {
-            background: #eee
+            background: #eee;
+            color: #2e1a0c;
         }
 
         .whats {
             background: #25d366;
             color: #fff;
-            text-decoration: none
+            text-decoration: none;
         }
-
-        /* FLOAT */
 
         .float {
             position: fixed;
@@ -241,14 +296,52 @@
             color: #fff;
             font-size: 30px;
             box-shadow: 0 10px 30px rgba(37, 211, 102, .4);
+            text-decoration: none;
+            z-index: 90;
         }
-
-        /* EMPTY */
 
         .empty {
             text-align: center;
             padding: 20px;
             display: none;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                max-width: 520px;
+                margin: 0 auto;
+                background: #fff6ec;
+            }
+
+            .modal {
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 520px;
+            }
+        }
+
+        @media (max-height: 640px) {
+            .modal-image-area {
+                padding-top: 55px;
+            }
+
+            .modal-content {
+                max-height: 45vh;
+                overflow-y: auto;
+            }
+
+            .modal-body h2 {
+                font-size: 1.05rem;
+            }
+
+            .modal-body p {
+                font-size: .82rem;
+            }
+
+            .modal-actions button,
+            .modal-actions a {
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -258,7 +351,7 @@
     <header>
         <div class="top">
             <div class="logo">
-                <img src="img/logo.png">
+                <img src="img/logo.png" alt="Logo Prado Distribuidora">
             </div>
 
             <div>
@@ -278,22 +371,29 @@
 
     <a class="float" href="https://wa.me/5566992118670" target="_blank">✆</a>
 
-    <div class="modal" id="modal">
-        <img id="mImg">
-
-        <div class="modal-body">
-            <h2 id="mTitle"></h2>
-            <p id="mDesc"></p>
+    <div class="modal" id="modal" onclick="closeModalByBackdrop(event)">
+        <div class="modal-header">
+            <button class="modal-close-top" onclick="closeModal()">×</button>
         </div>
 
-        <div class="modal-actions">
-            <button class="close" onclick="closeModal()">Fechar</button>
-            <a class="whats" id="mWhats" target="_blank">Consultar</a>
+        <div class="modal-image-area">
+            <img id="mImg" alt="Imagem do produto">
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 id="mTitle"></h2>
+                <p id="mDesc"></p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="close" onclick="closeModal()">Fechar</button>
+                <a class="whats" id="mWhats" target="_blank">Consultar</a>
+            </div>
         </div>
     </div>
 
     <script>
-
         const products = [
             { nome: "Torresmo Crocante 80g", cat: "Torresmo", desc: "Produto crocante Limão.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmo80glimao.jpg?alt=media&token=8db4cb0c-ee64-4fc1-b0dd-ba349c69218a" },
             { nome: "Torresmo Crocante 50g", cat: "Torresmo", desc: "Produto crocante com alta saída.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Ftorresmo50g.jpg?alt=media&token=ce332d36-c705-493c-91b4-8d0b401c46e4" },
@@ -320,19 +420,22 @@
             { nome: "Cdb", cat: "Salgadinhos", desc: "Sal e Limão.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2FCdb.png?alt=media&token=4501388f-e573-475b-b742-0f14834e71da" },
             { nome: "Canudos Fritos", cat: "Salgadinhos", desc: "Alta Procura.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fcanudos.png?alt=media&token=3dd21b4c-e9aa-4bf4-bf38-41bd1bec1832" },
             { nome: "Banana Chips", cat: "Salgadinhos", desc: "Banana Chips 30g.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Fbabanachips.png?alt=media&token=1468c115-b125-4dc3-b2a8-73c3b2ddd0dd" },
-            { nome: "Amendoim ", cat: "Salgadinhos", desc: "Amendoin Com e Sem pele.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Famendoin.png?alt=media&token=21b61a71-af78-4de4-a093-d2211882e5f9" },
-            
-            
+            { nome: "Amendoim ", cat: "Salgadinhos", desc: "Amendoin Com e Sem pele.", img: "https://firebasestorage.googleapis.com/v0/b/albuns-mascarado.firebasestorage.app/o/CATALOGO%20PRADO%2Famendoin.png?alt=media&token=21b61a71-af78-4de4-a093-d2211882e5f9" }
         ];
 
         const grid = document.getElementById("grid");
         const search = document.getElementById("search");
         const empty = document.getElementById("empty");
+        const modal = document.getElementById("modal");
 
         function render() {
             let f = search.value.toLowerCase();
 
-            let list = products.filter(p => p.nome.toLowerCase().includes(f));
+            let list = products.filter(p =>
+                p.nome.toLowerCase().includes(f) ||
+                p.cat.toLowerCase().includes(f) ||
+                p.desc.toLowerCase().includes(f)
+            );
 
             grid.innerHTML = "";
 
@@ -341,24 +444,23 @@
                 card.className = "card";
 
                 card.innerHTML = `
-<div class="img-box">
-<img src="${p.img}">
-<div class="category">${p.cat}</div>
-</div>
+                    <div class="img-box">
+                        <img src="${p.img}" alt="${p.nome}">
+                        <div class="category">${p.cat}</div>
+                    </div>
 
-<div class="info">
-<h3>${p.nome}</h3>
-<p>${p.desc}</p>
+                    <div class="info">
+                        <h3>${p.nome}</h3>
+                        <p>${p.desc}</p>
 
-<div class="actions">
-<button class="btn-view" onclick="event.stopPropagation(); openModal(${JSON.stringify(p)})">Ver</button>
-<a class="btn-whats" href="https://wa.me/5566992118670?text=${encodeURIComponent('Olá, tenho interesse em: ' + p.nome)}" target="_blank">Consultar</a>
-</div>
+                        <div class="actions">
+                            <button class="btn-view" onclick="event.stopPropagation(); openModal(${encodeURIComponent(JSON.stringify(p))})">Ver</button>
+                            <a class="btn-whats" href="https://wa.me/5566992118670?text=${encodeURIComponent('Olá, tenho interesse em: ' + p.nome)}" target="_blank" onclick="event.stopPropagation()">Consultar</a>
+                        </div>
+                    </div>
+                `;
 
-</div>
-`;
-
-                card.onclick = () => openModal(p);
+                card.onclick = () => openModal(encodeURIComponent(JSON.stringify(p)));
 
                 grid.appendChild(card);
             });
@@ -368,9 +470,14 @@
 
         search.addEventListener("input", render);
 
-        function openModal(p) {
-            document.getElementById("modal").classList.add("active");
+        function openModal(productData) {
+            const p = typeof productData === "string" ? JSON.parse(decodeURIComponent(productData)) : productData;
+
+            modal.classList.add("active");
+            document.body.classList.add("modal-open");
+
             document.getElementById("mImg").src = p.img;
+            document.getElementById("mImg").alt = p.nome;
             document.getElementById("mTitle").innerText = p.nome;
             document.getElementById("mDesc").innerText = p.desc;
 
@@ -379,11 +486,23 @@
         }
 
         function closeModal() {
-            document.getElementById("modal").classList.remove("active");
+            modal.classList.remove("active");
+            document.body.classList.remove("modal-open");
         }
 
-        render();
+        function closeModalByBackdrop(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
 
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        render();
     </script>
 
 </body>
